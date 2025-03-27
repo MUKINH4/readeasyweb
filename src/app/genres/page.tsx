@@ -3,12 +3,10 @@ import NavBar from "@/components/nav-bar";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CircleAlert } from "lucide-react";
 
-// server actions
 async function getGenres() {
     const response = await fetch("http://localhost:8080/genres")
     return await response.json();
 }
-
 
 export default async function GenresPage() {
     const data: Array<Genre> = await getGenres()

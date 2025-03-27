@@ -2,8 +2,6 @@ import { Star } from "lucide-react";
 import Icon from "./icon";
 import CrudDropdown from "./crud-dropdown";
 
-
-
 export default function GenreItem({ genre }: GenreProps) {
     return (
         <div className="flex justify-between">
@@ -13,7 +11,7 @@ export default function GenreItem({ genre }: GenreProps) {
             </div>
             <div className="flex gap-x-3">
                 <Star />
-                <CrudDropdown />
+                <CrudDropdown id={genre.id} />
             </div>
         </div>
     )
