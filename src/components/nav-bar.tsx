@@ -14,10 +14,10 @@ export default function NavBar(props: NavBarProps) {
 
     const { active } = props
 
-    const classActive = "border-b-4 border-[#00AC9E]"
+    const classActive = "border-b-4 border-primary"
 
     return (
-        <nav className="flex justify-between bg-[#000F08] text-[#E2E8F0] px-6 pt-6">
+        <nav className="flex justify-between bg-secondary text-[#E2E8F0] px-6 pt-6">
             <h1 className="text-2xl fond-bold">Read Easy</h1>
             <ul className="flex gap-12">
                 {
