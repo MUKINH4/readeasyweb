@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation"
+
 const API_URL = "http://localhost:8080/genres"
 
 export async function createGenre(initialState: any, formData: FormData) {
@@ -12,7 +14,23 @@ export async function createGenre(initialState: any, formData: FormData) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
     }
-    fetch(API_URL, options)
+    const response = await fetch(API_URL, options)
+
+    if (!response.ok) {
+        const errors = await response.json()
+        console.log(errors.find(e => e.field === "icon")?.message)
+        return {
+            values: {
+                name: formData.get("name"),
+                icon: formData.get("icon")
+            },
+            errors: {
+                name: errors.find(e => e.field === "name")?.message,
+                icon: errors.find(e => e.field === "icon")?.message
+            }
+        }
+    }
+    redirect("/genres")
 }
 
 export async function getGenres() {

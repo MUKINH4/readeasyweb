@@ -12,6 +12,10 @@ const initialState = {
     values: {
         name: "",
         icon: ""
+    },
+    errors: {
+        name: "",
+        icon: ""
     }
 }
 
