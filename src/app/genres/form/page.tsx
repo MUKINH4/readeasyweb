@@ -12,6 +12,10 @@ const initialState = {
     values: {
         name: "",
         icon: ""
+    },
+    errors: {
+        name: "",
+        icon: ""
     }
 }
 
@@ -28,8 +32,26 @@ export default function GenreFormPage() {
                     <h2 className="mb-3 text-lg font-medium text-white">Cadastrar Gênero</h2>
                     <div>
                         <form action={formAction} className="space-y-4">
-                            <Input name="name" placeholder="Nome do gênero" color="white"/>
-                            <Input name="icon" placeholder="Ícone" color="white"/>
+                            <div>
+                                <Input 
+                                name="name" 
+                                placeholder="Nome do gênero"
+                                color="white" 
+                                aria-invalid={!!state?.errors.name}
+                                defaultValue={state?.values.name}/> 
+
+                                <span className="text-sm text-destructive">{state?.errors.name}</span>
+                            </div>
+                            <div>
+                                <Input 
+                                name="icon" 
+                                placeholder="Ícone" 
+                                color="white" 
+                                aria-invalid={!!state?.errors.icon}
+                                defaultValue={state?.values.icon}
+                                />
+                                <span className="text-sm text-destructive">{state?.errors.icon}</span>
+                            </div>
                             
                             <div className="flex justify-around mt-3">
                                 <Button asChild variant="outline">
@@ -39,7 +61,7 @@ export default function GenreFormPage() {
                                     </Link >
                                 </Button>
 
-                                <Button>
+                                <Button className="cursor-pointer">
                                     <Check />
                                     Salvar
                                 </Button>
