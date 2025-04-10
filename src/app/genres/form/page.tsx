@@ -33,6 +33,7 @@ export default function GenreFormPage() {
                     <div>
                         <form action={formAction} className="space-y-4">
                             <div>
+<<<<<<< HEAD
                                 <Input 
                                 name="name" 
                                 placeholder="Nome do gênero"
@@ -53,6 +54,15 @@ export default function GenreFormPage() {
                                 <span className="text-sm text-destructive">{state?.errors.icon}</span>
                             </div>
                             
+=======
+                                <Input name="name" placeholder="Nome do gênero" color="white" aria-invalid={!!state?.errors.name} defaultValue={state?.values.name}/>
+                                <span className="text-sm text-destructive">{state?.errors.name}</span>
+                            </div>
+                            <div>
+                                <Input name="icon" placeholder="Ícone" color="white" aria-invalid={!!state?.errors.icon} defaultValue={state.values.icon}/>
+                                <span className="text-sm text-destructive">{state?.errors.icon}</span>
+                            </div>
+>>>>>>> 3b83538df21e641b4371836d3c8f949c5f6d5553
                             <div className="flex justify-around mt-3">
                                 <Button asChild variant="outline">
                                     <Link href="/genres" >

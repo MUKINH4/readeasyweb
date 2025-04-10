@@ -16,15 +16,25 @@ export async function createGenre(initialState: any, formData: FormData) {
     }
     const response = await fetch(API_URL, options)
 
+<<<<<<< HEAD
 
     if (!response.ok) {
         const errors = await response.json()
+=======
+    if (!response.ok) {
+        const errors = await response.json()
+        console.log(errors.find(e => e.field === "icon")?.message)
+>>>>>>> 3b83538df21e641b4371836d3c8f949c5f6d5553
         return {
             values: {
                 name: formData.get("name"),
                 icon: formData.get("icon")
             },
+<<<<<<< HEAD
             error: {
+=======
+            errors: {
+>>>>>>> 3b83538df21e641b4371836d3c8f949c5f6d5553
                 name: errors.find(e => e.field === "name")?.message,
                 icon: errors.find(e => e.field === "icon")?.message
             }
